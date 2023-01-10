@@ -4,33 +4,25 @@ public class AliceBob {
     
     static void findWinner(int n,int even, int odd) {
         
-        int reqEvens = n/2;
-            int reqOdds = 0;
-        
-            if(n%2 != 0) {
-                reqEvens ++;
-            }
             
             boolean ans = false;
-            
-            // System.out.println("evens "+even+"  odds   "+odd);
         
-            while(reqEvens >= 0) {
-                // System.out.println("required evens "+reqEvens+" required odds   "+reqOdds);
-                if((reqEvens*2) - 1 <= even && (reqOdds * 2) <= odd) {
-                    ans = true;
-                    break;
-                }
-                
-                if(reqOdds*2 -1 <= odd && reqEvens *2 <= even)  {
-                    ans = true;
-                    break;
-                }
-                reqEvens-=2;
-                reqOdds += 2;
+            if(odd%4 == 0 || odd % 4 == 3){
+                ans = true;
             }
             
-            // while(reqOdds >= 0) 
+            if(odd%4==2){
+                ans = false;
+            }
+            
+            if(odd%4==1){
+                if(even%2==0){
+                    ans = false;
+                }
+                else{
+                    ans = true;
+                }
+            }
             
             if(ans) {
                 System.out.println("Alice");
